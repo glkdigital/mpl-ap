@@ -3,6 +3,7 @@ import os
 import csv
 import aiohttp
 import gspread
+import json
 
 
 from aiogram import Bot, Dispatcher, F, types
@@ -16,6 +17,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram import types
 from oauth2client.service_account import ServiceAccountCredentials
 from gspread.exceptions import WorksheetNotFound
+from google.oauth2.service_account import Credentials
+from gspread import authorize
 
 
 
@@ -36,8 +39,16 @@ dp = Dispatcher(storage=MemoryStorage())
 class WalletForm(StatesGroup):
     wallet = State()
 
-# Подключение к Google Таблице
-gc = gspread.service_account(filename="google-api.json")
+# Получаем JSON из переменной окружения
+creds_json = os.getenv("GOOGLE_CREDS")
+creds_dict = json.loads(creds_json)
+
+# Создаём объект Credentials
+scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+credentials = Credentials.from_service_account_info(creds_dict, scopes=scopes)
+
+# Авторизация
+gc = authorize(credentials)
 sheet = gc.open("mpl_ap").worksheet("webmasters")
 
 # === Меню ===
