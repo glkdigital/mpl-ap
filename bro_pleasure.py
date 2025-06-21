@@ -20,7 +20,7 @@ from gspread.exceptions import WorksheetNotFound
 from google.oauth2.service_account import Credentials
 from gspread import authorize
 
-
+keep_alive() 
 
 
 # === CONFIG ===
