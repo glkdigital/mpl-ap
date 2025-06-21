@@ -19,6 +19,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from gspread.exceptions import WorksheetNotFound
 from google.oauth2.service_account import Credentials
 from gspread import authorize
+from keep_alive import keep_alive
 
 keep_alive() 
 
