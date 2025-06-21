@@ -20,7 +20,9 @@ from gspread.exceptions import WorksheetNotFound
 from google.oauth2.service_account import Credentials
 from gspread import authorize
 
+port = int(os.environ.get("PORT", 10000))  # получаем PORT, заданный Render'ом
 
+app.run(host="0.0.0.0", port=port)
 
 # === CONFIG ===
 BOT_TOKEN = "8141814127:AAHChhCHyVr1V-O8Y24p5D_aYfjX0BKijG4"
