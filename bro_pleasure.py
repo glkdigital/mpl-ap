@@ -45,7 +45,7 @@ creds_dict = json.loads(creds_json)
 creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
 
 # Создаём объект Credentials
-scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 credentials = Credentials.from_service_account_info(creds_dict, scopes=scopes)
 
 # Авторизация
