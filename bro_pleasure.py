@@ -42,6 +42,7 @@ class WalletForm(StatesGroup):
 # Получаем JSON из переменной окружения
 creds_json = os.getenv("GOOGLE_CREDS")
 creds_dict = json.loads(creds_json)
+creds_dict["private_key"] = creds_dict["private_key"].replace("\\n", "\n")
 
 # Создаём объект Credentials
 scopes = ["https://www.googleapis.com/auth/spreadsheets"]
