@@ -25,7 +25,7 @@ keep_alive()
 
 
 # === CONFIG ===
-BOT_TOKEN = "8141814127:AAHChhCHyVr1V-O8Y24p5D_aYfjX0BKijG4"
+BOT_TOKEN = ""
 SURVEY_BOT_USERNAME = "MyPleasuresAnketa_bot"
 SUPPORT_USERNAME = "@glk341"
 PARTNER_CHANNEL_URL = "https://t.me/+W0wll7wwAxw0OGJi"
